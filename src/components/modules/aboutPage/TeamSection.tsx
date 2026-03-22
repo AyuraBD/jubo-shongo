@@ -87,7 +87,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Abdus Sobhan Liton",
     role:     "Founder & President",
     bio:      "Passionate about community development, Ayub founded Unity of Strength in 2024 with a vision to uplift every family in Feni district through faith-driven service.",
-    photo:    "/images/team/ayub.jpg",
+    photo:    "https://i.ibb.co.com/ccQFsBt2/member-1.jpg",
     group:    "founder",
     joinYear: 2024,
     location: "West Shaheb Nagor, Feni",
@@ -103,7 +103,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Abul Hashem",
     role:     "Co-Founder & Secretary",
     bio:      "Abul Hashem oversees all community programs and ensures every initiative is delivered with transparency and care for those we serve.",
-    photo:    "/images/team/fatema.jpg",
+    photo:    "https://i.ibb.co.com/4n134fTS/member-2.jpg",
     group:    "founder",
     joinYear: 2024,
     location: "Durgapur, Feni",
@@ -118,7 +118,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Hafez Abdul Karim",
     role:     "Religious Advisor",
     bio:      "Hafez Karim brings decades of Islamic scholarship to guide our religious programs, ensuring all activities are aligned with Quran and Sunnah.",
-    photo:    "/images/team/karim.jpg",
+    photo:    "",
     group:    "advisor",
     joinYear: 2024,
     location: "Durgapur, Feni",
@@ -133,7 +133,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Rahul Ahmed",
     role:     "Finance Advisor",
     bio:      "A chartered accountant by profession, Rahul ensures all funds are managed transparently and every taka is accounted for in our public reports.",
-    photo:    "/images/team/rahul.jpg",
+    photo:    "",
     group:    "advisor",
     joinYear: 2024,
     location: "Parshuram, Feni",
@@ -148,7 +148,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Kamal Hossain",
     role:     "Head of Housing Committee",
     bio:      "Kamal leads our housing rehabilitation program, coordinating construction teams and ensuring displaced families receive safe, dignified shelter.",
-    photo:    "/images/team/kamal.jpg",
+    photo:    "",
     group:    "committee",
     joinYear: 2024,
     location: "West Shaheb Nagor, Feni",
@@ -163,7 +163,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Nusrat Jahan",
     role:     "Head of Food Programs",
     bio:      "Nusrat coordinates our weekly food distribution drives across Feni, managing over 50 volunteers and ensuring no family goes to bed hungry.",
-    photo:    "/images/team/nusrat.jpg",
+    photo:    "",
     group:    "committee",
     joinYear: 2024,
     location: "Noapur, Feni",
@@ -178,7 +178,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Rahim Uddin",
     role:     "Sports & Events Lead",
     bio:      "Rahim organises our annual sports tournaments and community events, bringing youth together through healthy competition and cultural celebration.",
-    photo:    "/images/team/rahim.jpg",
+    photo:    "",
     group:    "committee",
     joinYear: 2024,
     location: "Durgapur, Feni",
@@ -193,7 +193,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name:     "Sumaiya Islam",
     role:     "Lead Volunteer",
     bio:      "Sumaiya has contributed over 200 volunteer hours since joining, leading mosque renovation crews and tutoring children in Quran recitation.",
-    photo:    "/images/team/sumaiya.jpg",
+    photo:    "",
     group:    "volunteer",
     joinYear: 2024,
     location: "West Shaheb Nagor, Feni",
@@ -252,23 +252,21 @@ function MemberCard({ member }: { member: TeamMember }) {
     >
       {/* ── Photo area ─────────────────────────────────────── */}
       <div className="relative h-56 overflow-hidden bg-gradient-to-br from-brand-50 to-brand-100 shrink-0">
-        <Image
+        {member.photo ? <img
           src={member.photo}
           alt={member.name}
-          fill
           className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             // fallback to initials if image not found
             (e.target as HTMLImageElement).style.display = "none";
           }}
-        />
-
-        {/* Initials fallback — shown when image fails */}
+        /> : 
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="font-display text-5xl font-bold text-brand-300 select-none">
             {member.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
           </span>
         </div>
+        }        
 
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
