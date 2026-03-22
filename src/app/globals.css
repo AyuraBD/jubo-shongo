@@ -1,3 +1,6 @@
+/* ── ALL @imports must be first ──────────────────────────────
+   No @import url() for fonts needed here — next/font/google
+   in layout.tsx handles font loading automatically.       */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -5,6 +8,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ✅ Your default shadcn mappings — keep as-is */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -46,8 +50,46 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* 🆕 Brand colour palette
+     Usage: bg-brand-700  text-gold-400  border-brand-100  */
+  --color-brand-950: #022c22;
+  --color-brand-900: #064e3b;
+  --color-brand-800: #065f46;
+  --color-brand-700: #047857;
+  --color-brand-600: #059669;
+  --color-brand-500: #10b981;
+  --color-brand-400: #34d399;
+  --color-brand-100: #d1fae5;
+  --color-brand-50:  #ecfdf5;
+
+  --color-gold-600:  #d97706;
+  --color-gold-500:  #f59e0b;
+  --color-gold-400:  #fbbf24;
+  --color-gold-100:  #fef3c7;
+  --color-gold-50:   #fffbeb;
+
+  --color-stone-900: #1c1917;
+  --color-stone-800: #292524;
+  --color-stone-700: #44403c;
+  --color-stone-600: #57534e;
+  --color-stone-400: #a8a29e;
+  --color-stone-200: #e7e5e4;
+  --color-stone-100: #f5f5f4;
+  --color-stone-50:  #fafaf9;
+
+  /* 🆕 Font families — next/font injects these CSS vars via layout.tsx */
+  --font-display: var(--font-display);
+  --font-arabic:  var(--font-arabic);
+  /* --font-sans already above; layout.tsx sets it to DM Sans */
+
+  /* 🆕 Named animation shortcuts */
+  --animate-fade-in-up:   fade-in-up   0.6s ease both;
+  --animate-fade-in-down: fade-in-down 0.6s ease both;
+  --animate-pulse-dot:    pulse-dot    2s ease-in-out infinite;
 }
 
+/* ── :root — your default oklch values, untouched ─────────── */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -83,6 +125,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* ── .dark — your default values, untouched ───────────────── */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -117,6 +160,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ── @layer base — your 3 defaults + new heading/reset rules  */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -127,4 +171,76 @@
   html {
     @apply font-sans;
   }
+
+  /* 🆕 Headings use Playfair Display */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  a  { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  body { overflow-x: hidden; }
 }
+
+/* ── @layer utilities ─────────────────────────────────────── */
+@layer utilities {
+  .font-display { font-family: var(--font-display, 'Playfair Display', serif); }
+  .font-arabic  { font-family: var(--font-arabic,  'Amiri', serif); }
+  .font-body    { font-family: var(--font-body,    'DM Sans', sans-serif); }
+
+  .transition-brand { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  .hero-bg {
+    background: linear-gradient(160deg, #022c22 0%, #064e3b 55%, #065f46 100%);
+  }
+
+  .hero-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 60%, #10b98126 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 30%, #f59e0b0f 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .pattern-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+    pointer-events: none;
+  }
+}
+
+/* ── Keyframes ────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+.animate-fade-in-up   { animation: var(--animate-fade-in-up); }
+.animate-fade-in-down { animation: var(--animate-fade-in-down); }
+.animate-pulse-dot    { animation: var(--animate-pulse-dot); }
