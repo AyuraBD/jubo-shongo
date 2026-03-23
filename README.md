@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌍 Jubo Shongo – Community Support Platform
 
-## Getting Started
+A modern web platform built to support community welfare, crowdfunding, and youth engagement activities.
+This project represents a digital initiative to help underprivileged people, organize social events, and connect contributors globally.
 
-First, run the development server:
+🔗 Live Site: https://jubo-shongo.vercel.app/
+
+---
+
+## ✨ Features
+
+* 🤝 **Community Support System**
+
+  * Help people with no income or basic needs
+  * Provide support for vulnerable individuals
+
+* 💸 **Crowdfunding**
+
+  * Raise funds for urgent community needs
+  * Transparent donation flow
+
+* 🏆 **Event & Activities**
+
+  * Organize games and social programs
+  * Promote youth engagement
+
+* 🌍 **Global Contribution**
+
+  * Members working abroad can contribute easily
+  * Centralized donation tracking
+
+* 📄 **Clean UI/UX**
+
+  * Simple and user-friendly design
+  * Responsive layout for all devices
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next js 16
+* Tailwind CSS
+* TypeScript
+* ShadCN
+
+### Other Tools
+
+* Vercel
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/jubo-shongo.git
+cd jubo-shongo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Run the project
 
-## Learn More
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+jubo-shongo/
+│
+├── client/          # Frontend files
+├── server/          # Backend (Node.js + Express)
+├── public/          # Static assets
+├── routes/          # API routes
+├── models/          # Database models
+└── README.md
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Project Goals
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Support people in need within the community
+* Build a transparent crowdfunding system
+* Create a strong connection between local and international contributors
+* Encourage youth participation in social work
+
+---
+
+## 📸 Screenshots
+
+> Add screenshots here for better presentation
+> (Homepage, Donation Page, Event Section, etc.)
+
+---
+HomePage
+<img width="1439" height="889" alt="Jubo-Shongo-—-Youth-Community-Foundation-03-23-2026_12_46_PM" src="https://github.com/user-attachments/assets/326222d6-fca3-4068-81aa-384d8d8f696f" />
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a new branch (`feature/your-feature`)
+3. Commit your changes
+4. Push and open a Pull Request
+
+---
+
+## 🛡️ License
+
+This project is licensed under the MIT License.
+
+---
+
+## ❤️ Acknowledgements
+
+Special thanks to all contributors and community members who support this initiative.
+
+---
+
+## 📬 Contact
+
+For any inquiries or collaboration:
+
+* Email: [5043ayub@gmail.com](mailto:5043ayub@gmail.com)
+* Website: https://jubo-shongo.vercel.app/
+
+---
+
+## 🌟 Support
+
+If you like this project, give it a ⭐ on GitHub and share it with others!
