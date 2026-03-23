@@ -86,7 +86,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     id:       "1",
     name:     "Abdus Sobhan Liton",
     role:     "Founder & President",
-    bio:      "Passionate about community development, Ayub founded Unity of Strength in 2024 with a vision to uplift every family in Feni district through faith-driven service.",
+    bio:      "Passionate about community development, Liton founded Unity of Strength in 2024 with a vision to uplift every family in Feni district through faith-driven service.",
     photo:    "https://i.ibb.co.com/ccQFsBt2/member-1.jpg",
     group:    "founder",
     joinYear: 2024,
@@ -245,7 +245,7 @@ function MemberCard({ member }: { member: TeamMember }) {
   return (
     <Card
       className={cn(
-        "group overflow-hidden border border-stone-200 bg-white rounded-2xl",
+        "py-0 pb-4 group overflow-hidden border border-stone-200 bg-white rounded-2xl",
         "hover:border-brand-200 hover:shadow-xl hover:-translate-y-1",
         "transition-all duration-300 flex flex-col",
       )}
